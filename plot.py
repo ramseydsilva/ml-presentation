@@ -9,7 +9,7 @@ COLORS = ['r', 'b', 'g']
 
 
 def plot3D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
-
+    """Plot a 3d graph using a set of dataframes"""
     # create matplotlib 3d axes
     fig = plt.figure(figsize=figsize)
     ax = Axes3D(fig, azim=-115, elev=15)
@@ -33,6 +33,7 @@ def plot3D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
 
 
 def plot2D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
+    """Plot a 2d graph using a set of dataframes"""
     fig, ax = plt.subplots(figsize=figsize)
 
     for df, color in zip(dfs, cycle(COLORS)):
