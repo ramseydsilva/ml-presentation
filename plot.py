@@ -33,6 +33,7 @@ def plot3D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
 
     plt.show()
 
+    return fig
 
 def plot2D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
     """Plot a 2d graph using a set of dataframes"""
@@ -52,6 +53,8 @@ def plot2D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
                 ax.annotate(text,  xy=(i + corr, j + corr))
 
     plt.show()
+
+    return fig
 
 
 def plot_decision_regions(X, y, classifier, resolution=0.02):
@@ -76,4 +79,3 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
         plt.scatter(x=X[y == cl, 0], y=X[y == cl, 1],
                     alpha=0.8, c=cmap(idx),
                     marker='o', label=cl)
-
