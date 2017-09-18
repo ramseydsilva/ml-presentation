@@ -2,12 +2,47 @@ from itertools import cycle
 
 import numpy as np
 
+# import core math plot libraries
+import matplotlib.pyplot as plt
+import matplotlib.animation as animation
 from matplotlib.colors import ListedColormap
 from mpl_toolkits.mplot3d import Axes3D
-import matplotlib.pyplot as plt
 
+# import svc libraries
+from sklearn.svm import SVC
+
+# setup marker generator and color map
 MARKER = 'o'
 COLORS = ['r', 'b', 'g']
+CMAP = ListedColormap(COLORS[:2])
+
+# plot decision region function
+def plot_decision_regions(X, y, classifier, resolution=0.02):
+    
+    # fit the svm
+    classifier.fit(X, y)
+    
+    # plot the decision surface
+    x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    x2_min, x2_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
+                           np.arange(x2_min, x2_max, resolution))
+    Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
+    Z = Z.reshape(xx1.shape)
+    plt.contourf(xx1, xx2, Z, alpha=0.4, cmap=CMAP)
+    plt.xlim(xx1.min(), xx1.max())
+    plt.ylim(xx2.min(), xx2.max())
+
+    plt.scatter(X[y == 1, 0],
+                X[y == 1, 1],
+                c=COLORS[0],
+                marker=MARKER,
+                label='1')
+    plt.scatter(X[y == -1, 0],
+                X[y == -1, 1],
+                c=COLORS[1],
+                marker=MARKER,
+                label='-1')
 
 
 def plot3D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
@@ -33,7 +68,6 @@ def plot3D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
 
     plt.show()
 
-    return fig
 
 def plot2D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
     """Plot a 2d graph using a set of dataframes"""
@@ -54,28 +88,6 @@ def plot2D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
 
     plt.show()
 
-    return fig
 
 
-def plot_decision_regions(X, y, classifier, resolution=0.02):
 
-    # setup marker generator and color map
-    colors = ('blue', 'red', 'lightgreen', 'gray', 'cyan')
-    cmap = ListedColormap(colors[:len(np.unique(y))])
-
-    # plot the decision surface
-    x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1
-    x2_min, x2_max = X[:, 1].min() - 1, X[:, 1].max() + 1
-
-    xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
-                           np.arange(x2_min, x2_max, resolution))
-    Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
-    Z = Z.reshape(xx1.shape)
-    plt.contourf(xx1, xx2, Z, alpha=0.4, cmap=cmap)
-    plt.xlim(xx1.min(), xx1.max())
-    plt.ylim(xx2.min(), xx2.max())
-
-    for idx, cl in enumerate(np.unique(y)):
-        plt.scatter(x=X[y == cl, 0], y=X[y == cl, 1],
-                    alpha=0.8, c=cmap(idx),
-                    marker='o', label=cl)
