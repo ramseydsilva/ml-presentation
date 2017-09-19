@@ -1,11 +1,36 @@
 from itertools import cycle
 
+import numpy as np
+import matplotlib.animation as animation
 import matplotlib.pyplot as plt
+from matplotlib.colors import ListedColormap
 from mpl_toolkits.mplot3d import Axes3D
+from sklearn.svm import SVC
 
 
+# setup marker generator and color map
 MARKER = 'o'
 COLORS = ['r', 'b', 'g']
+CMAP = ListedColormap([COLORS[1], COLORS[0]])
+
+
+def plot_decision_regions(X, y, classifier, resolution=0.02):
+    # fit the svm
+    classifier.fit(X, y)
+
+    # plot the decision surface
+    x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1
+    x2_min, x2_max = X[:, 1].min() - 1, X[:, 1].max() + 1
+    xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
+                           np.arange(x2_min, x2_max, resolution))
+    Z = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
+    Z = Z.reshape(xx1.shape)
+    plt.contourf(xx1, xx2, Z, alpha=0.4, cmap=CMAP)
+    plt.xlim(xx1.min(), xx1.max())
+    plt.ylim(xx2.min(), xx2.max())
+
+    plt.scatter(X[y == 1, 0], X[y == 1, 1], c=COLORS[0], marker=MARKER, label='1')
+    plt.scatter(X[y == 0, 0], X[y == 0, 1], c=COLORS[1], marker=MARKER, label='-1')
 
 
 def plot3D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
@@ -50,3 +75,31 @@ def plot2D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
                 ax.annotate(text,  xy=(i + corr, j + corr))
 
     plt.show()
+
+
+def animate2D(df, factor=100.0):
+    # ATTENTION:
+    # dividing the data by a factor of 100
+    # large numbers take a long time to compute for svm engine
+    tempX = df.iloc[:, :2].transform(lambda x: x / factor)
+    X_xor = tempX.iloc[:, :].values
+    y_xor = df.iloc[:, 2].values
+
+    # generate graph for plot
+    fig, ax = plt.subplots()
+
+    # create a svc classifier using rbf kernel
+    svm = SVC(kernel='rbf', random_state=0, gamma=10, C=1)
+
+    def update(i):
+        # erase the previous figure
+        fig.clear()
+        # update the data
+        plot_decision_regions(X_xor[:i], y_xor[:i], classifier=svm)
+        # redraw the plot
+        plt.draw()
+
+    # Animate the plot
+    anim = animation.FuncAnimation(fig, update, np.arange(2, len(X_xor)), interval=1000,
+                                   repeat=False)
+    return anim
