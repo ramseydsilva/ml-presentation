@@ -14,7 +14,7 @@ from sklearn.svm import SVC
 # setup marker generator and color map
 MARKER = 'o'
 COLORS = ['r', 'b', 'g']
-CMAP = ListedColormap(COLORS[:2])
+CMAP = ListedColormap([COLORS[1], COLORS[0]])
 
 # plot decision region function
 def plot_decision_regions(X, y, classifier, resolution=0.02):
@@ -38,8 +38,8 @@ def plot_decision_regions(X, y, classifier, resolution=0.02):
                 c=COLORS[0],
                 marker=MARKER,
                 label='1')
-    plt.scatter(X[y == -1, 0],
-                X[y == -1, 1],
+    plt.scatter(X[y == 0, 0],
+                X[y == 0, 1],
                 c=COLORS[1],
                 marker=MARKER,
                 label='-1')
