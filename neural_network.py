@@ -1,4 +1,4 @@
-from numpy import exp, array, random, dot
+from numpy import array, dot, exp, random
 
 
 class NeuralNetwork():
@@ -7,28 +7,35 @@ class NeuralNetwork():
         # every time the program runs.
         random.seed(seed)
 
-        # We model a single neuron, with 3 input connections and 1 output connection.
-        # We assign random weights to a 3 x 1 matrix, with values in the range -1 to 1
+        # We model our weight matrix based on input counts and output counts.
+        # Then we assign random weights to it, with values in the range -1 to 1
         # and mean 0.
         self.synaptic_weights = 2 * random.random((input_count, output_count)) - 1
 
-    # The Sigmoid function, which describes an S shaped curve.
-    # We pass the weighted sum of the inputs through this function to
-    # normalise them between 0 and 1.
     def __sigmoid(self, x):
+        '''
+        The Sigmoid function, which describes an S shaped curve.
+        We pass the weighted sum of the inputs through this function to
+        normalise them between 0 and 1.
+        '''
         return 1 / (1 + exp(-x))
 
-    # The derivative of the Sigmoid function.
-    # This is the gradient of the Sigmoid curve.
-    # It indicates how confident we are about the existing weight.
     def __sigmoid_derivative(self, x):
+        '''
+        The derivative of the Sigmoid function.
+        This is the gradient of the Sigmoid curve.
+        It indicates how confident we are about the existing weight.
+        '''
         return x * (1 - x)
 
-    # We train the neural network through a process of trial and error.
-    # Adjusting the synaptic weights each time.
     def train(self, training_set_inputs, training_set_outputs, number_of_training_iterations):
         for iteration in range(number_of_training_iterations):
-            # Pass the training set through our neural network (a single neuron).
+            '''
+            We train the neural network through a process of trial and error
+            adjusting the synaptic weights each time.
+            '''
+
+            # Pass the training set through our neural network.
             output = self.predict(training_set_inputs)
 
             # Calculate the error (The difference between the desired output
@@ -43,8 +50,11 @@ class NeuralNetwork():
             # Adjust the weights.
             self.synaptic_weights += adjustment
 
-    # The neural network thinks.
     def predict(self, inputs):
+        '''
+        The neural network predicts an input
+        '''
         # Pass inputs through our neural network (our single neuron).
         return self.__sigmoid(dot(inputs, self.synaptic_weights))
+
 
