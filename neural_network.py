@@ -54,7 +54,7 @@ class NeuralNetwork():
             # Calculate the error (The difference between the desired output
             # and the predicted output).
             error = training_set_outputs - output
-            errors.append(np.mean(error))
+            errors.append(abs(np.mean(error)))
 
             # Multiply the error by the input and again by the gradient of the Sigmoid curve.
             # This means less confident weights are adjusted more.
