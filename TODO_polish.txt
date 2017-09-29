@@ -1,0 +1,85 @@
+Notes:
+- full screen the presentation
+- hide the task bar at bottom
+- find a clicker
+
+Adjustments to the presentation:
+Title slide:
+- 'Intro to Machine Learning' as main title
+- 'How to spot a bear' is our case of demonstrating one field of machine learning,
+  which is pattern recognition/classifier
+
+Feature engineering slide:
+- move feature engineering to the next slide
+- change the title to 'How to spot a bear in the wilds?'
+- Ask this question to start interacting with audience: 'What is machine learning?' or
+  'What do you think machine learning is?'
+- Come up with the most politically and scientifically correct answer to the above question,
+  such as 'constructing a computer that is capable of mimicing human reasoning, learning,
+  and decision making abilities'
+
+Presentation logic cycle:
+- asking question, getting an answer, throwing the audience off, and repeat
+- change the order of the slides between the weight slide and the zebra slide??
+
+Note to ramsey:
+- log out of youtube
+- disable notifications during presentation
+- hide taskbar
+
+Feature engineering slide:
+- put feature engineering title in the slide which the first data table shows up
+- To gear audience towards answering questions the way we want them to, ask questions
+  such as 'What are the specific traits/qualities you are seeing in the identification
+  process?'
+
+For tables that are too long
+- only show the new information, and the grizzly bear row
+
+Feature engineering tips:
+- change the slide title to 'Summarize feature engineering'
+- convert non-numerical value to numbers, because computer likes numbers and binaries
+- another feature that computers like is data, large amount of data by sheer quantity,
+  because computers need a large amount of data in order to be accurate and shake
+  off bias
+- normalize value, centered around 0
+- needs a good transition phrase from feature engineering to 'Add More Data'
+
+Visualize correlations:
+- add axis names to subplots
+- change name from visualizing correlations to visualizing data
+- change css padding to remove extra space from top and bottom in order to display all data
+  on one webpage without scrolling
+
+Multiple dimensions:
+- it is hard for humans to visualize and analyze things in multiple dimensions,
+  and that is why we condense the features into principle components, pca
+- thru this dataset, we will try to find a way for computer to recognize
+
+Reminder to audience:
+- we need to remind the audience at a high leve that we are going thru all these mini-steps
+  in order to find a way to train a computer to do pattern recognition/classification
+- a svm is a technique, support vector machine, we need to look up the exact definition
+  for svm, such as 'find the plane of separation between different sets of data'
+
+Transition to neural networks:
+- however, this is not how us humans think, these traditional methods require formulas
+- data science vs machine learning slide -> needs to be in fragment
+- point of separation, highlight of the presentation, spend 5min on the comparison slide
+  between traditional method and modern method
+- enter neural networks
+
+Neural network:
+- various types of neural network that have memories, attention span
+- mechanism of a human neuron cell
+- neural network constructe according to our datasets
+
+Neural network visuals TODO:
+- animate the training process
+- animate the predict process
+- neural network zoo? convolutional neural network?
+- demonstrate the abilities of a trained neural network by feeding it both old data
+  and new, never seen before data, for example airplane, basically a testing set
+
+Need to divide speech parts to both Bowei and Ramsey
+
