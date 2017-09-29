@@ -1,8 +1,11 @@
 from itertools import cycle
 
+
 import numpy as np
 import matplotlib.animation as animation
 import matplotlib.pyplot as plt
+import matplotlib.image as mimage
+import matplotlib.cbook as cbook
 from matplotlib.colors import ListedColormap
 from mpl_toolkits.mplot3d import Axes3D
 from sklearn.svm import SVC
@@ -103,3 +106,21 @@ def animate2D(df, factor=100.0):
     anim = animation.FuncAnimation(fig, update, np.arange(2, len(X_xor)), interval=1000,
                                    repeat=False)
     return anim
+
+
+def plot_image(ax, image, extent=None, size=100):
+    image = cbook.get_sample_data(image, asfileobj=False)
+    image = mimage.imread(image)
+    if not extent:
+        extent = [-size, size, -size, size]
+    ax.imshow(image, extent=extent, aspect='auto')
+    ax.set_xlim([-size, size])
+    ax.set_ylim([-size, size])
+    ax.axis('off')
+
+
+def plot_text(ax, text, size=1, **kwargs):
+    ax.text(0, 0, text, **kwargs)
+    ax.set_xlim([-size, size])
+    ax.set_ylim([-size, size])
+    ax.axis('off')
