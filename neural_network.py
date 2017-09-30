@@ -18,7 +18,8 @@ class NeuralNetwork():
         self.__generate_rnd_weights()
 
     def __generate_rnd_weights(self):
-        self.synaptic_weights = 2 * np.random.random((self.input_count, self.output_count)) - 1
+        self.synaptic_weights = np.random.uniform(0, 1, size=(self.input_count, self.output_count))
+        #self.synaptic_weights = 2 * np.random.random((self.input_count, self.output_count)) - 1
 
     def __sigmoid(self, x):
         '''
@@ -83,7 +84,8 @@ class NeuralNetwork():
             output = self.predict(training_set_inputs)
             error = training_set_outputs - output
             error_mean = np.mean(error)
-            if (abs(error_mean - last_error_mean) < error_delta):
+            #if (abs(error_mean - last_error_mean) < error_delta):
+            if sum(abs(error)) < 0.02:
                 print('Training is complete!');
                 print('Training took {0} iterations to get fit'.format(count))
                 break
