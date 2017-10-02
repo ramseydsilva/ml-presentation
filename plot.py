@@ -114,10 +114,11 @@ def plot_image(ax, image, extent=None, size=100):
     image = mimage.imread(image)
     if not extent:
         extent = [-size, size, -size, size]
-    ax.imshow(image, extent=extent, aspect='auto')
+    image = ax.imshow(image, extent=extent, aspect='auto')
     ax.set_xlim([-size, size])
     ax.set_ylim([-size, size])
     ax.axis('off')
+    return image
 
 
 def plot_text(ax, text, size=1, **kwargs):
@@ -135,7 +136,7 @@ def plot_dial(ax, weight, prediction=False):
     ax.set_theta_zero_location("N")
     ax.set_ylim([X, Y])
     text = f"{int(weight*100)}"
-    ax.annotate(text, xy=[X, X], ha="center", va="center")
+    text = ax.annotate(text, xy=[X, X], ha="center", va="center")
 
     t = np.arange(.8, 10.5, 0.01)
     # outer line
@@ -147,10 +148,12 @@ def plot_dial(ax, weight, prediction=False):
     # pointer
     if prediction:
         weight = 0.5 + (weight/2)
-    ax.plot([FACTOR*(1-weight)]*len(t), t+20, color='purple', lw=5)
+    pointer, = ax.plot([FACTOR*(1-weight)]*len(t), t+20, color='purple', lw=5)
 
     ax.get_xaxis().set_ticks([])
     ax.get_yaxis().set_ticks([])
+
+    return pointer, text
 
 
 def draw_nn_prediction(row, df, weights, prediction):
