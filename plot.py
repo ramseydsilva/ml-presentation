@@ -81,7 +81,7 @@ def plot2D(*dfs, columns=None, figsize=(5, 5), plot_titles=False):
     plt.show()
 
 
-def animate2D(df, factor=100.0):
+def animate2D(df, figsize=(15, 15), factor=100.0):
     # ATTENTION:
     # dividing the data by a factor of 100
     # large numbers take a long time to compute for svm engine
@@ -90,7 +90,7 @@ def animate2D(df, factor=100.0):
     y_xor = df.iloc[:, 2].values
 
     # generate graph for plot
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=figsize)
 
     # create a svc classifier using rbf kernel
     svm = SVC(kernel='rbf', random_state=0, gamma=10, C=1)
@@ -163,6 +163,7 @@ def draw_nn_prediction(row, df, weights, prediction):
     # Draw image
     ax1 = plt.subplot2grid((6, 5), (0, 0), rowspan=6)
     image = os.path.join(os.getcwd(), df.iloc[row, 0].split('"')[1])
+    
     plot_image(ax1, image, extent=[-100, 100, -20, 20], size=100)
     ax1.text(0, 30, df.iloc[row].name, ha='center', size=20)
 
