@@ -1,0 +1,35 @@
+- ml presentation script
+- bowei yao's parts
+
+outline:
+intro to machine learning
+gathering data and refining data
+support vector machine to make sense of the data
+
+Hello everyone, My name is Bowei and this is Ramsey, welcome to our presentation on machine learning.
+In this presentation, we will briefly introduce some of the concepts within the domain of machine learning,
+and also what machine learning can do for us, as a financial company. We will do so thru by examining a fairly
+specific, but also commonly used subset of machine learning, which is giving a machine the ability to
+perform pattern recognition or classification. 
+
+Our specific example today for a machine learning classifier is to giving the computer the ability to identify
+whether a specific data object is a bear.
+
+So as a human being, how do we identify a bear? This process happens almost instantly. You don't even
+think about it. You just look at the picture, and you just know. However, if we slow down time to a certain point,
+you will see that there's actually a process, where your senses, mostly your sight or seeing in this case
+quickly processes the features presented in the picture, and send them over to the brain for analysis.
+
+And what machine learning is to let computer mimic human's range of learning,
+reasoning and decision making. In this case, it is mimicing a human's ability to classify/identify objects.
+We can start recording down the features that we recognize, and pass them over to the machine as data, such as the number of legs.
+
+However, this single feature alone clearly is insufficient in identifying the bear from everything else. A table
+has 4 legs, and it's clearly not a bear. So we add extra features, such as the number of eyes, weight to distinguish.
+And as things get more complicated, for example, a zebra has relatively the same attributes as a bear, we add even more features
+such as color. A walrus shares very similar stats, we add more features, such as fur length, sound to distinguish.
+
+This problem further complicates as we realize that there are quite a few variants in the bear family as well.
+Take a look at panda and polar bear. They are not brown in color, and a panda weighs signicantly less than the
+grizzly and polar bear. But are they bears? Yes. So we need to find some common traits to classify together the 
+bears as well. Such as they all have long fur, and the type of sound which they make is roar.

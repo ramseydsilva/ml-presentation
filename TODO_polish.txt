@@ -57,7 +57,7 @@ Multiple dimensions:
 - thru this dataset, we will try to find a way for computer to recognize
 
 Reminder to audience:
-- we need to remind the audience at a high leve that we are going thru all these mini-steps
+- we need to remind the audience at a high level that we are going thru all these mini-steps
   in order to find a way to train a computer to do pattern recognition/classification
 - a svm is a technique, support vector machine, we need to look up the exact definition
   for svm, such as 'find the plane of separation between different sets of data'
