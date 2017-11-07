@@ -31,5 +31,16 @@ such as color. A walrus shares very similar stats, we add more features, such as
 
 This problem further complicates as we realize that there are quite a few variants in the bear family as well.
 Take a look at panda and polar bear. They are not brown in color, and a panda weighs signicantly less than the
-grizzly and polar bear. But are they bears? Yes. So we need to find some common traits to classify together the 
+grizzly and polar bear. However, they are bears nonetheless. So we need to find some common traits to classify together the 
 bears as well. Such as they all have long fur, and the type of sound which they make is roar.
+
+Again, lion, and tiger shares similar texture and sound as the bears, so we add even more features in order to
+clarify the non-bears from the bears. Now we can rinse and repeat this process of, finding problems, refining the
+data definition and data set, noticing new problems for like forever, and the definition of what is a bear and what is not 
+a bear becomes more accurate and detailed. But for the sake of our demonstration, we are just gonna stop here and move on
+to the next phase of refining existing data, which is feature engineering.
+
+Computers works in binaries at the very bottom level, and it's much easier for computer to computer data in numerical format
+rather than text. So we convert non numerical features into numbers, such as color to pixel intensity, texture to ur length,
+sound to loudness measured in decibels, etc. We also want to drop data columns that have little relevance in the outcome of the result.
+Such as the number of legs, or the number of eyes.
