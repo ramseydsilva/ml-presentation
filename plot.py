@@ -17,6 +17,17 @@ MARKER = 'o'
 COLORS = ['r', 'b', 'g']
 CMAP = ListedColormap([COLORS[1], COLORS[0]])
 
+def plot_correlation_graphs(x_data, y_data, dfs):
+    fig, sub = plt.subplots(3, 6, figsize=(15, 7))
+    for row, x in zip(sub, y_data):
+        for ax, y in zip(row, x_data):
+            for _df, color in zip(dfs, ['r', 'b']):
+                ax.scatter(_df[x], _df[y])
+            ax.set_xlabel(x, fontsize=12)
+            ax.set_ylabel(y, fontsize=12)
+
+    plt.tight_layout()
+    plt.show()
 
 def plot_decision_regions(X, y, classifier, resolution=0.02):
     # fit the svm
