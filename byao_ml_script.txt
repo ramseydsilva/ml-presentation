@@ -1,10 +1,33 @@
 - ml presentation script
 - bowei yao's parts
 
+Machine learning presentation – Ramsey & Bowei
+
 outline:
 intro to machine learning
 gathering data and refining data
 support vector machine to make sense of the data
+
+new script:
+
+Intro
+Machine learning is defined as a subset of the artificial intelligence.
+Artificial intelligence is the field of study where we try to bestow intelligence upon computers.
+As humans, we gained our intelligence through decades of learning, and experimentations.
+Similarly, machine learning is the process, or the ability which the computers learn in order to gain artificial intelligence.
+
+Machine learning is still a fledging topic.
+Lots of research and development ongoing with regards to learning theory, which is the field devoted to the design, analysis and improvement of machine learning algorithms.  
+Despite this, it is being used widely across many different fields across the globe.
+Machine learning is mainly used in problems where the traditional methods of using static programming practises, writing out explicit algorithms and logic is difficult, cannot achieve a respectable/acceptable performance.
+It is a completely different approach from the traditional methods. It is data driven, instead of algorithm driven.
+
+Across the worlds, machine learning has been used in the following fields: 
+Bioinformatics, linguistics, computer vision (image, object recognition), machine perception, natural language understanding, natural language processing
+However, in particular to our company, and the work that we are concerned with:
+Software engineering, and financial market analysis
+
+old script:
 
 Hello everyone, My name is Bowei and this is Ramsey, welcome to our presentation on machine learning.
 In this presentation, we will briefly introduce some of the concepts within the domain of machine learning,
