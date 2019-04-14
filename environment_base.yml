@@ -1,8 +1,16 @@
-ffmpeg
-jupyter
-matplotlib
-pandas
-scikit-learn
-sklearn
-tensorflow
-pillow
+name: ml-presentation
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.6
+
+  - ffmpeg
+  - jupyter
+  - matplotlib
+  - pandas
+  - scikit-learn
+  - tensorflow
+  - pillow
