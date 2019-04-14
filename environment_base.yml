@@ -1,6 +1,16 @@
-jupyter
-matplotlib
-pandas
-scikit-learn
-sklearn
-tensorflow
+name: ml-presentation
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.6
+  - matplotlib
+  - pandas
+  - scikit-learn
+  - tensorflow
+  - jupyter
+
+  - pip:
+    - sklearn

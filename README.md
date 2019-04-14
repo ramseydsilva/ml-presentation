@@ -4,7 +4,7 @@ Machine Learning Presentation
 Usage
 -----
 
-    conda create -n ml-presentation -f environment_base.yml
+    conda env create
     source activate ml-presentation
     jupyter notebook
 
