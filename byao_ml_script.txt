@@ -1,0 +1,69 @@
+- ml presentation script
+- bowei yao's parts
+
+Machine learning presentation – Ramsey & Bowei
+
+outline:
+intro to machine learning
+gathering data and refining data
+support vector machine to make sense of the data
+
+new script:
+
+Intro
+Machine learning is defined as a subset of the artificial intelligence.
+Artificial intelligence is the field of study where we try to bestow intelligence upon computers.
+As humans, we gained our intelligence through decades of learning, and experimentations.
+Similarly, machine learning is the process, or the ability which the computers learn in order to gain artificial intelligence.
+
+Machine learning is still a fledging topic.
+Lots of research and development ongoing with regards to learning theory, which is the field devoted to the design, analysis and improvement of machine learning algorithms.  
+Despite this, it is being used widely across many different fields across the globe.
+Machine learning is mainly used in problems where the traditional methods of using static programming practises, writing out explicit algorithms and logic is difficult, cannot achieve a respectable/acceptable performance.
+It is a completely different approach from the traditional methods. It is data driven, instead of algorithm driven.
+
+Across the worlds, machine learning has been used in the following fields: 
+Bioinformatics, linguistics, computer vision (image, object recognition), machine perception, natural language understanding, natural language processing
+However, in particular to our company, and the work that we are concerned with:
+Software engineering, and financial market analysis
+
+old script:
+
+Hello everyone, My name is Bowei and this is Ramsey, welcome to our presentation on machine learning.
+In this presentation, we will briefly introduce some of the concepts within the domain of machine learning,
+and also what machine learning can do for us, as a financial company. We will do so thru by examining a fairly
+specific, but also commonly used subset of machine learning, which is giving a machine the ability to
+perform pattern recognition or classification. 
+
+Our specific example today for a machine learning classifier is to giving the computer the ability to identify
+whether a specific data object is a bear.
+
+So as a human being, how do we identify a bear? This process happens almost instantly. You don't even
+think about it. You just look at the picture, and you just know. However, if we slow down time to a certain point,
+you will see that there's actually a process, where your senses, mostly your sight or seeing in this case
+quickly processes the features presented in the picture, and send them over to the brain for analysis.
+
+And what machine learning is to let computer mimic human's range of learning,
+reasoning and decision making. In this case, it is mimicing a human's ability to classify/identify objects.
+We can start recording down the features that we recognize, and pass them over to the machine as data, such as the number of legs.
+
+However, this single feature alone clearly is insufficient in identifying the bear from everything else. A table
+has 4 legs, and it's clearly not a bear. So we add extra features, such as the number of eyes, weight to distinguish.
+And as things get more complicated, for example, a zebra has relatively the same attributes as a bear, we add even more features
+such as color. A walrus shares very similar stats, we add more features, such as fur length, sound to distinguish.
+
+This problem further complicates as we realize that there are quite a few variants in the bear family as well.
+Take a look at panda and polar bear. They are not brown in color, and a panda weighs signicantly less than the
+grizzly and polar bear. However, they are bears nonetheless. So we need to find some common traits to classify together the 
+bears as well. Such as they all have long fur, and the type of sound which they make is roar.
+
+Again, lion, and tiger shares similar texture and sound as the bears, so we add even more features in order to
+clarify the non-bears from the bears. Now we can rinse and repeat this process of, finding problems, refining the
+data definition and data set, noticing new problems for like forever, and the definition of what is a bear and what is not 
+a bear becomes more accurate and detailed. But for the sake of our demonstration, we are just gonna stop here and move on
+to the next phase of refining existing data, which is feature engineering.
+
+Computers works in binaries at the very bottom level, and it's much easier for computer to computer data in numerical format
+rather than text. So we convert non numerical features into numbers, such as color to pixel intensity, texture to ur length,
+sound to loudness measured in decibels, etc. We also want to drop data columns that have little relevance in the outcome of the result.
+Such as the number of legs, or the number of eyes.

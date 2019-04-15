@@ -6,11 +6,11 @@ channels:
 
 dependencies:
   - python=3.6
+
+  - ffmpeg
+  - jupyter
   - matplotlib
   - pandas
   - scikit-learn
   - tensorflow
-  - jupyter
-
-  - pip:
-    - sklearn
+  - pillow
